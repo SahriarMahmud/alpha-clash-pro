@@ -43,13 +43,49 @@ function handleKeyboardKeyUpEvent(event){
 
     // check right or wrong key pressed
     if(playerPressed === expectedAlphabet){
-        console.log('yaaaaay');
-        console.log('you have pressed correctly', expectedAlphabet)
+        // console.log('yaaaaay');
+        
+        const currentScore = getTextElementValueById('current-score');
+        console.log(currentScore);
+        const updatedScore = currentScore+1;
+
+        setTextElementValueById('current-score', updatedScore);
+        
+        
+        
+        // -------------------------------------
+        // update score.
+        // 1. get the current score
+        // const currentScoreElement = document.getElementById('current-score');
+        // const currentScoreText = currentScoreElement.innerText;
+        // const currentScore = parseInt(currentScoreText);
+        
+        
+        // // 2. increase the score gradually
+        const newScore = currentScore + 1;
+        // // 3. show the updated score
+        // currentScoreElement.innerText = newScore;
+
+        // start a new round
         removeBackgroundColorById(expectedAlphabet);
         continueGame();
     }
     else{
-        console.log('hoynaiiiiii')
+        console.log('hoynaiiiiii');
+
+        const currentLife = getTextElementValueById('current-life');
+        const updatedLife = currentLife - 1;
+        setTextElementValueById('current-life', updatedLife);
+
+    //--------------------------------------- 
+    //     // get the current life number
+    //     const currentLifeElement= document.getElementById('current-life');
+    //     const currentLifeText = currentLifeElement.innerText;
+    //     const currentLife = parseInt(currentLifeText);
+    //     // reduce life count
+    //     const newLife = currentLife - 1;
+    //     // display updated life count
+    //     currentLifeElement.innerText = newLife;
     }
 }
 
